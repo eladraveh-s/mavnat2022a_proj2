@@ -255,11 +255,20 @@ public class FibonacciHeap {
     	return ;
     }
     
+    public void cascadingCut(HeapNode node) {
+    	boolean repeat;
+    	do {
+    		HeapNode parent = node.getParent();
+    		repeat = cut(node);
+    		node = parent;
+    	} while (repeat);
+    }
+    
     /**
      * 
      * @param node
      */
-    public void cascadingCut(HeapNode node) {
+    public boolean cut(HeapNode node) {
     	totalCuts++;
     	HeapNode parent = node.getParent();
     	Boolean repeat = parent.isSigned();  //checks if we need to do it again.
@@ -286,7 +295,7 @@ public class FibonacciHeap {
     	}
     	last = node;
     	this.min = this.min.getKey() < node.getKey() ? this.min : node;  //Updates minimum.
-    	if (repeat) {cascadingCut(parent);}
+    	return repeat;
     }
 
    /**

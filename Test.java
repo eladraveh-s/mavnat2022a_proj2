@@ -14,7 +14,7 @@ public class Test {
     public static void main(String[] args) {
 
         grade = 80.0;
-        testScore = grade / 29;
+        testScore = grade / 30;
         try {test0();} catch (Exception e){bugFound("test0, E");}
         try {test1();} catch (Exception e){bugFound("test1, E");}
         try {test2();} catch (Exception e){bugFound("test2, E");}
@@ -44,6 +44,7 @@ public class Test {
         try {test26();} catch (Exception e){bugFound("test26, E");}
         try {test27();} catch (Exception e){bugFound("test27, E");}
         try {test28();} catch (Exception e){bugFound("test28, E");}
+        try {test29();} catch (Exception e){bugFound("test28, E");}
 
         System.out.println(grade);
     }
@@ -946,6 +947,17 @@ public class Test {
                 FibonacciHeap.totalCuts() - totalCuts != 0 ||
                 FibonacciHeap.totalLinks() - links  < size - 100)
             bugFound(test);
+    }
+    
+    static void test29() {
+    	String test = "test29";
+    	fibonacciHeap = new FibonacciHeap();
+    	int[] arr = new int[100];
+    	for (int i = 0; i < 100; i++) {arr[i] = i + 1;}
+    	for (int i = 0; i < 1025; i++) {fibonacciHeap.insert(i);}
+    	fibonacciHeap.deleteMin();
+    	int[] fibArr = FibonacciHeap.kMin(fibonacciHeap, 100);
+    	for (int i = 0; i < 100; i++) {if (fibArr[i] != arr[i]) {bugFound(test);}}
     }
 
     static void bugFound (String test) {
