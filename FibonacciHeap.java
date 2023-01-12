@@ -335,13 +335,13 @@ public class FibonacciHeap {
     * ###CRITICAL### : you are NOT allowed to change H. 
     */
     public static int[] kMin(FibonacciHeap H, int k) {
-    	if (k == 0 || H.size() == 0) {return null;}
+    	if (k == 0 || H.size() == 0) {return new int[0];}
     	int[] arr = new int[k];
     	FibonacciHeap meanSus = new FibonacciHeap();
     	HeapNode curOrigin = H.min;
     	HeapNode curNew = meanSus.insert(curOrigin.getKey());
     	curNew.setOtherHeap(H.min);
-    	for (int i = 0; i < Math.min(k, H.size()); i++) {
+    	for (int i = 0; i < k; i++) {
     		curNew = meanSus.findMin();
     		curOrigin = curNew.getOtherHeap();
     		arr[i] = curNew.getKey();
