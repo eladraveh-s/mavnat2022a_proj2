@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Test {
 
-    static Heap heap;
+    static Heap1 heap;
 
     static FibonacciHeap fibonacciHeap;
     static double grade;
@@ -77,7 +77,7 @@ public class Test {
 
     static void test1() {
         String test = "test1";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(0);
         while (!heap.isEmpty()) {
@@ -94,7 +94,7 @@ public class Test {
 
     static void test2() {
         String test = "test2";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeysReverse(0);
         while (!heap.isEmpty()) {
@@ -111,7 +111,7 @@ public class Test {
 
     static void test3() {
         String test = "test3";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(0);
         addKeysReverse(4000);
@@ -130,7 +130,7 @@ public class Test {
 
     static void test4() {
         String test = "test4";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(0);
         addKeysReverse(4000);
@@ -206,7 +206,7 @@ public class Test {
 
     static void test7() {
         String test = "test7";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(1000);
         addKeysReverse(3000);
@@ -241,7 +241,7 @@ public class Test {
 
     static void test8() {
         String test = "test8";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(7000);
         addKeysReverse(9000);
@@ -276,7 +276,7 @@ public class Test {
 
     static void test9() {
         String test = "test9";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(7000);
         addKeysReverse(9000);
@@ -319,7 +319,7 @@ public class Test {
 
     static void test10() {
         String test = "test10";
-        heap = new Heap();
+        heap = new Heap1();
         fibonacciHeap = new FibonacciHeap();
         addKeys(7000);
         addKeysReverse(9000);
@@ -952,12 +952,12 @@ public class Test {
     static void test29() {
     	String test = "test29";
     	fibonacciHeap = new FibonacciHeap();
-    	int[] arr = new int[100];
-    	for (int i = 0; i < 100; i++) {arr[i] = i + 1;}
+    	int[] arr = new int[1024];
+    	for (int i = 0; i < 1024; i++) {arr[i] = i + 1;}
     	for (int i = 0; i < 1025; i++) {fibonacciHeap.insert(i);}
     	fibonacciHeap.deleteMin();
-    	int[] fibArr = FibonacciHeap.kMin(fibonacciHeap, 100);
-    	for (int i = 0; i < 100; i++) {if (fibArr[i] != arr[i]) {bugFound(test);}}
+    	int[] fibArr = FibonacciHeap.kMin(fibonacciHeap, 1024);
+    	for (int i = 0; i < 1024; i++) {if (fibArr[i] != arr[i]) {bugFound(test);}}
     }
 
     static void bugFound (String test) {
