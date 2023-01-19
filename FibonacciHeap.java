@@ -132,7 +132,7 @@ public class FibonacciHeap {
      */
     public HeapNode combineTwoTrees(HeapNode smaller,HeapNode bigger) {
     	if (smaller.getKey() > bigger.getKey()) {return combineTwoTrees(bigger, smaller);}
-    	totalLinks = totalLinks + 1;
+    	totalLinks++;
     	HeapNode smallerLeftChild = smaller.getChild();
     	smaller.setChild(bigger);
     	bigger.setParent(smaller);
